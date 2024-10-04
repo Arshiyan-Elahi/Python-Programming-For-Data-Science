@@ -437,3 +437,67 @@ elif (budget>=500 and budget<=1000):
 elif (budget<500) :
     print(f"You can keep Fast in this {budget} budget")
 
+
+
+
+'''
+Task Mangement To-do List
+
+Functionality:
+Add a Task: The user can add tasks to the list.
+View Tasks: The user can see all the tasks they’ve added.
+Remove a Task: The user can remove a completed task.
+Exit: Ends the program.
+
+'''
+
+# Initialize an empty list for tasks
+tasks = []
+
+while True:
+    print("\nTo-Do List Manager")
+    print("1. Add a Task")
+    print("2. View Tasks")
+    print("3. Remove a Task")
+    print("4. Exit")
+
+    # Ask the user to choose an option
+    choice = int(input("Choose an option (1-4): "))
+
+    if choice == 1:
+        # Add a new task
+        task = input("Enter a new task: ")
+        tasks.append(task)
+        print(f"Task '{task}' added to the list.")
+
+    elif choice == 2:
+        # View all tasks
+        if tasks:
+            print("\nYour Tasks:")
+            for i, task in enumerate(tasks):
+                print(f"{i}. {task}")
+        else:
+            print("No tasks in your list!")
+
+    elif choice == 3:
+        # Remove a task
+        if tasks:
+            for i, task in enumerate(tasks):
+                print(f"{i}. {task}")
+            task_no = int(input("Enter the task number to remove: "))
+            if 0 <= task_no and task_no < len(tasks):
+                removed_task = tasks.pop(task_no)
+                print(f"Task '{removed_task}' removed from the list.")
+            else:
+                print("Invalid task number!")
+        else:
+            print("No tasks to remove!")
+
+    elif choice == 4:
+        # Exit the program
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice! Please select a valid option.")
+
