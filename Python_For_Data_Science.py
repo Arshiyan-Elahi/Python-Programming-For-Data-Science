@@ -453,13 +453,15 @@ Exit: Ends the program.
 
 # Initialize an empty list for tasks
 tasks = []
+popped_items=[]
 
 while True:
     print("\nTo-Do List Manager")
     print("1. Add a Task")
     print("2. View Tasks")
     print("3. Remove a Task")
-    print("4. Exit")
+    print("4. Deleted Items List")
+    print("5. Exit")
 
     # Ask the user to choose an option
     choice = int(input("Choose an option (1-4): "))
@@ -493,11 +495,22 @@ while True:
         else:
             print("No tasks to remove!")
 
+
     elif choice == 4:
         # Exit the program
-        print("Goodbye!")
+        popped_items.append(removed_task)
+        for idx,val in enumerate(popped_items):
+            print('Popped Items from the list.')
+            print(f"{idx}. {val}")
+
+
+
+    elif choice == 5:
+        # Exit the program
+        print("Thanks for using Task Manager!")
         break
 
     else:
         print("Invalid choice! Please select a valid option.")
+
 
